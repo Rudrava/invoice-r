@@ -12,6 +12,7 @@ import {
 } from "../ui/breadcrumb";
 import { Input } from "../ui/input";
 import CollapsibleSideNav from "./collapsible-side-nav";
+import { ThemeSwitcher } from "../ui/theme-switcher";
 
 const Header = () => {
   return (
@@ -45,6 +46,7 @@ const Header = () => {
         />
       </div>
       <UserHeaderMenu />
+      <ThemeSwitcher />
     </header>
   );
 };
