@@ -4,13 +4,15 @@ import { cn } from "@/lib/utils";
 import { PanelLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FC, useMemo } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { Button } from "../ui/button";
 import { Dialog } from "../ui/dialog";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 
 const CollapsibleSideNav = () => {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
   const NavRender = useMemo(() => {
     return navData.map((item) => {
       return (
@@ -24,9 +26,14 @@ const CollapsibleSideNav = () => {
       );
     });
   }, [pathname]);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
     <Dialog>
-      <Sheet>
+      <Sheet open={isOpen} onOpenChange={(e) => setIsOpen(e)}>
         <SheetTrigger asChild>
           <Button size="icon" variant="outline" className="sm:hidden">
             <PanelLeft className="h-5 w-5" />
