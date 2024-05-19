@@ -1,10 +1,10 @@
+import Header from "@/components/nav/header";
+import SideNav from "@/components/nav/side-nav";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import SideNav from "@/components/nav/side-nav";
-import Header from "@/components/nav/header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: "Invoice management app",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
