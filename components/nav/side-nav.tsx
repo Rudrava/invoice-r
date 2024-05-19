@@ -21,6 +21,7 @@ const SideNav = () => {
       return (
         <SideNavButton
           key={item.link}
+          link={item.link}
           label={item.title}
           icon={item.icon}
           active={isRouteActive(item.link, pathname)}
@@ -45,7 +46,7 @@ const SideNav = () => {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
+                href="/"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <Settings className="h-5 w-5" />
@@ -63,14 +64,15 @@ const SideNav = () => {
 const SideNavButton: FC<{
   icon: React.ReactNode;
   label: string;
+  link: string;
   active?: boolean;
-}> = ({ icon, label, active }) => {
+}> = ({ icon, label, link, active }) => {
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
           <Link
-            href="#"
+            href={link}
             className={cn(
               "flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8",
               {
