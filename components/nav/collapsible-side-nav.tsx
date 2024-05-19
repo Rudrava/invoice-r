@@ -1,13 +1,13 @@
+import { navData } from "@/data";
+import { isRouteActive } from "@/lib";
+import { cn } from "@/lib/utils";
 import { PanelLeft } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FC, useMemo } from "react";
 import { Button } from "../ui/button";
 import { Dialog } from "../ui/dialog";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
-import { navData } from "@/data";
-import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
-import { isRouteActive } from "@/lib";
 
 const CollapsibleSideNav = () => {
   const pathname = usePathname();
@@ -23,7 +23,7 @@ const CollapsibleSideNav = () => {
         />
       );
     });
-  }, []);
+  }, [pathname]);
   return (
     <Dialog>
       <Sheet>
