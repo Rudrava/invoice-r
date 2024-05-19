@@ -49,7 +49,7 @@ const CollapsibleSideNavButton: FC<{
 }> = ({ link, icon, label, active }) => {
   return (
     <Link
-      href="#"
+      href={link}
       className={cn(
         "flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground",
         { "text-foreground": active }
